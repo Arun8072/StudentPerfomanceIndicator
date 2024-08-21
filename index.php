@@ -34,7 +34,7 @@ if ($conn->connect_error) {
    $sql = "SELECT username,password  FROM Staff";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($result==true && $result->num_rows > 0) {
     // output data of each row
 while($row = $result->fetch_assoc()){
      if($row["username"]==$user){
@@ -227,7 +227,7 @@ var class1 =$('[name=class1]').val();
 var si =$(this).attr("id");
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'register_backend.php',
     data:{spiuser:user,spipass:pass,cc:cc,class1:class1,unqid:id,a:si},
     
     success: function(data){

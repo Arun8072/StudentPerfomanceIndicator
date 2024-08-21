@@ -276,16 +276,16 @@ a{text-decoration:none;}
     </ul>
      
  <div class="row p-2 flex-container">
-  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="1" >1styear</p>
       </div>
-  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="2">2ndyear</p>
       </div>   
-  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="3">3rdyear</p>
       </div> 
-   <div class="card text-center shadow bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+   <div class="card text-center shadow bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="4" >4thyear</p>
     </div> 
  </div>
@@ -317,7 +317,7 @@ $(document).ready(function(){
 //try loads for every click makes seen updates instantly 
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'view_backend.php',
     data:{a:"sview"},
     success: function(data){
       $("#cl").html(data);
@@ -328,7 +328,7 @@ $(document).ready(function(){
 $("#t2").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'view_backend.php',
     data:{dept:"all",a:"fview"},
     success: function(data){
       $("#clg").html(data);
@@ -353,7 +353,7 @@ $(".dep").click(function(){
 var dept = $(this).attr("value");
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'sort.php',
     data:{dept:dept,a:"dview"},
     success: function(data){
       $("#clg").html(data);
@@ -381,7 +381,7 @@ var year = $(this).attr("yr");
 var dept = $(this).attr("dept");
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'sort.php',
     data:{year:year,dept: dept,a:"dview"},
     success: function(data){
       $("#clg").html(data);
@@ -402,13 +402,13 @@ $(this).insertAfter($(this).next());
     });//aj
 });//clk
 function srbrd(d){
- $("#report").append("<div class="+"flip-card"+"> <div class="+"flip-card-inner"+"> <div class="+"flip-card-front"+"> <h4>"+d.AB12+"</h4> <h5>"+d.dep+"</h5> </div> <div class="+"flip-card-back col"+"> <div class="+"row"+"> <div class="+"col"+"> <p>1st year (<span>"+d.AB1+"</span>)</p> <p>A : <span>"+d.A1+"</span></p> <p>B : <span>"+d.B1+"</span></p> </div> <div class="+"col"+"> <p>2nd year (<span>"+d.AB2+"</span>)</p> <p>A : <d className=""></d>A2+"</span></p> <p>B : <span>"+d.B2+"</span></p> </div> <div class="+"col"+"> <p>3rd year (<span>"+d.AB3+"</span>)</p> <p>A : <span>"+d.A3+"</span></p> <p>B : <span>"+d.B3+"</span></p> </div> </div><!--row--> </div><!--fcb--> </div><!--fci--> </div><!--fc--><br>");
+ $("#report").append("<div class="+"flip-card value="+d.AB12+"> <div class="+"flip-card-inner"+"> <div class="+"flip-card-front"+"> <h4>"+d.AB12+"</h4> <h5>"+d.dep+"</h5> </div> <div class="+"flip-card-back col"+"> <div class="+"row"+"> <div class="+"col"+"> <p>1st year (<span>"+d.AB1+"</span>)</p> <p>A : <span>"+d.A1+"</span></p> <p>B : <span>"+d.B1+"</span></p> </div> <div class="+"col"+"> <p>2nd year (<span>"+d.AB2+"</span>)</p> <p>A : <span>"+d.A2+"</span></p> <p>B : <span>"+d.B2+"</span></p> </div> <div class="+"col"+"> <p>3rd year (<span>"+d.AB3+"</span>)</p> <p>A : <span>"+d.A3+"</span></p> <p>B : <span>"+d.B3+"</span></p> </div> </div><!--row--> </div><!--fcb--> </div><!--fci--> </div><!--fc--><br>");
 }
 $("#t3").click(function(){
   $("#report").text("");
   $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'report.php',
     data:{an:"report"},
     success: function(data){
     data=JSON.parse(data); 
@@ -420,12 +420,12 @@ $("#t3").click(function(){
  srbrd(data.dep4);
 	}//suc
   });//aj
-});//clk
+}); //clk
 
 $("#t4").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'report.php',
     data:{an:"report"},
     success: function(data){
       
@@ -439,12 +439,12 @@ $("#t4").click(function(){
 $(".log").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php', 
+    url: 'cookie.php', 
     data:{cnm:"studreg",cvl:"",cki:"y"},
     });//aj
  $.ajax({
     type: "POST",
-    url: 'demo.php', 
+    url: 'cookie.php', 
     data:{cnm:"tname",cvl:"",cki:"y"},
    success: function(){
     window.location="index.php";
@@ -456,7 +456,7 @@ $("#dft").click(function(){
  var slt=$('[name=sem]').val().concat($('[name=slot]').val());
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'cookie.php',
     data:{cnm:"slot",cvl:slt,cki:"y"},
     success: function(data){
     alert(data);

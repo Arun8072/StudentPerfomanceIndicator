@@ -204,11 +204,12 @@ color:white;
   </div><!--nav-wrap-->
 
    <ul id="nav-mobile" class="right hide-on-med-and-down">
-<li class="nav-item active"><a class="nav-link disabled" href="view.php"><i class="material-icons">developer_board</i>View</a></li> 
-<li class="nav-item "> <a class="nav-link " href="register.php"><i class="material-icons">person_add</i>Register</a> </li> 
-<li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons">edit</i>Entry</a> </li> 
+<li class="nav-item active"><a class="nav-link disabled" href="view.php"><i class="material-icons d-lg-none d-xl-none">developer_board</i>View</a></li> 
+<li class="nav-item "> <a class="nav-link " href="register.php"><i class="material-icons d-lg-none d-xl-none">person_add</i>Register</a> </li> 
+<li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons d-lg-none d-xl-none">edit</i>Entry</a> </li>
+<li class="nav-item"> <a class="nav-link log blue-text" href="index.php" >Sign Out</a> </li>
 <div class="row md-form" role="form"> 
-<li> <a class="log" href="index.php" class="blue-text">Sign Out</a> </li>
+
       </ul> 
     
     <div class="" lass="nav-content ">
@@ -264,7 +265,9 @@ color:white;
   </span> <!-- Grid column -->
    <span class="col-4">
 <span id="dft" class="waves-effect small" ><a href="view.php">Set Default </a>
-<?php echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>'; ?>
+<?php if (isset($_COOKIE["slot"])){
+echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>'; 
+} ?>
 </span> </span> <!-- Grid column -->
   </div> 
   </ul>
@@ -299,16 +302,16 @@ color:white;
     </ul>
      
      <div class="row p-2 flex-container">
-  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="1" >1styear</p>
       </div>
-  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="2">2ndyear</p>
       </div>   
-  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+  <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="3">3rdyear</p>
       </div> 
-   <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px;width:50px;border:none;">
+   <div class="card text-center shadow  bg-white rounded waves-effect" style="height:25px; width:70px; min-width:52px; border:none;">
         <p class="card-text" dept="" yr="4" >4thyear</p>
     </div> 
  </div>
@@ -356,7 +359,7 @@ if ($(window).width() > 900) {
 //try loads for every click makes seen updates instantly 
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'view_backend.php',
     data:{class:"cc",ord:"n",a:"view"},
     success: function(data){
       $("#cl").html(data);
@@ -366,7 +369,7 @@ if ($(window).width() > 900) {
 $("#ccsd").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'view_backend.php',
     data:{class:"ccsd",ord:"n",a:"view"},
     success: function(data){
       $("#cl").html(data);
@@ -394,7 +397,7 @@ $("#ord").click(function(){
 var cl= $(this).attr("name");
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'view_backend.php',
     data:{class:cl,ord:"y",a:"view"},
     success: function(data){
       $("#cl").html(data);
@@ -406,8 +409,8 @@ var cl= $(this).attr("name");
 $("#aly1").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{class:"cc",a:"iview"},
+    url: 'view_backend.php',
+    data:{class:"cc",ord:" ",a:"iview"},
     success: function(data){
       $("#cl").html(data);
     }//suc
@@ -429,8 +432,8 @@ alert(k);
 $("#t2").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{class:"c1",a:"view"},
+    url: 'view_backend.php',
+    data:{class:"c1",ord:" ",a:"view"},
     success: function(data){
       $("#cla").html(data);
     }//suc
@@ -440,7 +443,7 @@ $("#t2").click(function(){
 $("#ordr").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'view_backend.php',
     data:{class:"c1",ord:"y",a:"view"},
     success: function(data){
       $("#cla").html(data);
@@ -452,8 +455,8 @@ $("#ordr").click(function(){
 $("#aly2").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{class:"c1",a:"iview"},
+    url: 'view_backend.php',
+    data:{class:"c1",ord:"",a:"iview"},
     success: function(data){
       $("#cla").html(data);
     }//suc
@@ -463,8 +466,8 @@ $("#aly2").click(function(){
 $("#t3").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{dept:"all",a:"fview"},
+    url: 'sort.php',
+    data:{year:"",dept:"all",a:"fview"},
     success: function(data){
       $("#clg").html(data);
       
@@ -489,8 +492,8 @@ $(".dep").click(function(){
 var dept = $(this).attr("value");
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{dept:dept,a:"dview"},
+    url: 'sort.php',
+    data:{year:"",dept:dept,a:"dview"},
     success: function(data){
       $("#clg").html(data);
  $(".card-text").attr("dept",dept);
@@ -519,7 +522,7 @@ var dept = $(this).attr("dept");
 
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'sort.php',
     data:{year:year,dept: dept,a:"dview"},
     success: function(data){
       $("#clg").html(data);
@@ -547,7 +550,7 @@ $("#t4").click(function(){
   $("#report").text("");
   $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'report.php',
     data:{an:"report"},
     success: function(data){
     data=JSON.parse(data); 
@@ -576,7 +579,7 @@ $(this).insertAfter($(this).next());
 $("#t5").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'report.php',
     data:{an:"report"},
     success: function(data){
       
@@ -632,8 +635,8 @@ $("#t5").click(function(){
 $(".log").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{logout:"yes"},
+    url: 'exit.php',
+    data:{exit:"logout"},
     success: function(data){
     }//suc
     });//aj
@@ -643,7 +646,7 @@ $("#dft").click(function(){
  var slt=$('[name=sem]').val().concat($('[name=slot]').val());
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'cookie.php',
     data:{cnm:"slot",cvl:slt,cki:"y"},
     success: function(data){
     alert(data);
@@ -681,8 +684,8 @@ $("#close").click(function(){
 $("#delacc").click(function(e){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{ae:"delaccount"},
+    url: 'exit.php',
+    data:{exit:"delaccount"},
     success: function(data){
     window.location="index.php";
     }//suc 
@@ -705,6 +708,9 @@ $("#delacc").click(function(e){
  <script> document.addEventListener('DOMContentLoaded', function() {
 M.AutoInit();
   });
+
+ var slt=$('[name=sem]').val().concat($('[name=slot]').val());
+ alert(slt);
 </script>
  
 </body>

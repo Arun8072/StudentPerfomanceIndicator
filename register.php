@@ -243,7 +243,7 @@ if(zd.length<8 && bts.length==4 && btl.length==4 && slt.length==9 && bts<btl){
 var tname=bts.concat(btl,zd);
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'register_backend.php',
     data:{Name:zn,reg:zr,tname:tname,indct:ind,mode:md,level:lvl,slot:slt,scr:sr,a:"insert"},
     
     success: function(data){
@@ -273,7 +273,7 @@ var tname=bts.concat(btl,zd);
 var mnt="<?php echo $_SESSION['spiusername']; ?>";
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'register_backend.php',
     data:{tname:tname,mnt:mnt,a:"last"},
     success: function(data){
     if(""!==data){
@@ -346,16 +346,16 @@ $('[name=score]').val(sr[ind][md][lv]);
  $("#log").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{logout:"yes"}
+    url: 'exit.php',
+    data:{exit:"logout"}
     });//aj
  });//clk
  
  $("#delacc").click(function(e){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{ae:"delaccount"},
+    url: 'exit.php',
+    data:{exit:"delaccount"},
     success: function(data){
     window.location="index.php";
     }//suc 

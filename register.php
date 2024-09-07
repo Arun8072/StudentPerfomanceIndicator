@@ -32,7 +32,7 @@ box-shadow:1px 0px 3px orange;
  width: 100%;
 }
 body {
- background: url("images/imgg.png") no-repeat center fixed;
+ background: url("images/bg_add.jpg") no-repeat center fixed;
  background-color: #ffffff;
   background-size: cover; /* Resize the background image to cover the entire container */
 }
@@ -58,16 +58,20 @@ color:grey;
 </style>
  </head>
 <body>
-  <div class="container">
+ <div class="container">
   <br>
   <div class="jumbotron">
   <strong><center><h4 id="hd" >Student Details</h4></center></strong>
 <form id="fg" class="form-horizontal" role="form" method="POST"  >
   <div class="form-group">
-<div class="row"> <span class="col-1 mt-3"><i class="material-icons">person_outline</i></span>
+<div class="row"> 
+  <span class="col-1 mt-3"><i class="material-icons">person_outline</i></span>
 <span class="col-10"><input id="nm" type="text" class="form-control form-control cnt" name="Name" pattern="[a-zA-Z\s.]{5,30}" title="enter only text" placeholder="Enter Student Name" data-length="30" required></span>
+</div>
+<div class="row"> 
 <span class="col-1 mt-3"><i class="material-icons">dialpad</i></span>
-<span class="col-10"><input type="number" id="rg" class="form-control form-control cnt" name="Reg" pattern="[0-9]{12}" placeholder="Enter Register Number" data-length="12" required></span></div><!--row-->
+<span class="col-10"><input type="number" id="rg" class="form-control form-control cnt" name="Reg" pattern="[0-9]{12}" placeholder="Enter Register Number" data-length="12" required></span>
+</div><!--row-->
 <h6>Batch</h6>
 <!-- Grid row -->
 <div class="row"> 

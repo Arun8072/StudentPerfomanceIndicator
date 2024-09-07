@@ -264,7 +264,7 @@ color:white;
 </select>
   </span> <!-- Grid column -->
    <span class="col-4">
-<span id="dft" class="waves-effect small" ><a href="view.php">Set Default </a>
+<span id="dft" class="waves-effect small" ><a>Set Default </a>
 <?php if (isset($_COOKIE["slot"])){
 echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>'; 
 } ?>
@@ -650,6 +650,7 @@ $("#dft").click(function(){
     data:{cnm:"slot",cvl:slt,cki:"y"},
     success: function(data){
     alert(data);
+    window.location="view.php";
 	}//suc
   });//aj
 });//clk

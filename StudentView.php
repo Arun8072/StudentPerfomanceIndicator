@@ -1,5 +1,5 @@
 <?php
-if(!isset($_COOKIE['studreg'])){
+if(!(isset($_COOKIE['studreg']) || isset($_COOKIE['spiusername']) )){
    die(header("location:index.php"));
  }
 ?>

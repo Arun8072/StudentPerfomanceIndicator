@@ -1,4 +1,5 @@
 <?php 
+//checks teacher session matches to the database
 session_start();
 if(!isset($_SESSION['spiusername'])){
   die(header("location:index.php"));

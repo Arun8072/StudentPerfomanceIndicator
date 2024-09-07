@@ -1,6 +1,12 @@
  <?php
-  if ($_POST["exit"]=="logout"){ exit(session_destroy()); }
-
+ session_start();
+  //  to logout
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    exit(session_destroy());
+    header("location:index.php");
+}
+if ($_POST["exit"]=="logout"){echo "logedout"; exit(session_destroy());}
+//to delete account
 if("delaccount"==$_POST['exit']){
  $user=$_SESSION['spiusername'];
  $pass=$_SESSION['spipassword'];

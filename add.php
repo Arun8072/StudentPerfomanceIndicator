@@ -33,19 +33,24 @@ box-shadow:1px 0px 3px orange;
     font-family: Ubuntu-Regular;
 }
 #li{
- width:45%;
- float:right;
  font-size:10px;
+ margin-top: 35px;
+bottom: 0px;
 }
 body {
- background: url("images/imgg.png") no-repeat center fixed;
+ background: url("images/bg_add.jpg") no-repeat center fixed;
  background-color: #ffffff;
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-size: cover; /* Resize the background image to cover the entire jumbotron */
 }
-.jumbotron{
+.container{
   background-color: #ffffff;
  border-radius:7px;
+ padding-top:5px;
+ padding-bottom: 5px;
+ margin-top: 30px;
+ min-height:800px;
   }
+
 #upd{
 overflow:scroll;
 overflow-x:auto;
@@ -53,8 +58,8 @@ max-height:225px;
 margin-left:22px;
 margin-right:22px;
 }
-#updt{
-height:250px;
+#fg{
+  min-height:300px;
 }
 .one{
 text-align:right;
@@ -64,18 +69,6 @@ font-family:Ubuntu-Medium;
 }
 .btn{
 border-radius:5px;
-}
-.fixed-bottom{
-z-index:-2;
-border-radius:5px;
-background-color: #ffffff;
-}
-.fixed-top{
-z-index:-1;
-background-color: #ffffff;
-}
-.fixed-bottom:hover{
-z-index:0;
 }
 .font-weight-bold{
 font-size:13px;
@@ -92,14 +85,16 @@ color:grey;
 </style>
  </head>
 <body>
-  <div class="fixed-top"><form id="fg" class="form-horizontal" role="form" method="POST">
- <div class="form-group">
+  <div class="container">
+<form id="fg" class="form-horizontal" role="form" method="POST">
+  <h5><b>Batch</b></h5>
+<div class="form-group">
 <div id="upd" class="" >
 </div>
 <div id="updt" >
 <div class="row"> <!-- Grid row -->
   <!-- Grid column --> 
-<span class="col-4"> 
+<div class="col-12"> 
    <!-- Material input -->
   ​<select name="sem">
   <option value="" disabled selected hidden>Semester</option>
@@ -112,9 +107,9 @@ color:grey;
   <option value="sem7">Sem7</option>
   <option value="sem8">Sem8</option>
 </select>
-</span> <!-- Grid column -->
+</div> <!-- Grid column -->
  <!-- Grid column -->
-  <span class="col-4">
+  <div class="col-12">
      <!-- Material input -->
   ​<select name="slot">
   <option value="" disabled selected hidden>Slot</option>
@@ -122,22 +117,22 @@ color:grey;
  <option value="slot2">Slot2</option>
  <option value="slot3">Slot3</option>
 </select>
-  </span> <!-- Grid column --> 
-  <span class="col-4 mt-5">
-<div id="up" class="btn">List</div>
-  </span>
+  </div> <!-- Grid column --> 
+  <div class="col-12 mt-5">
+<div id="up" class="btn col-4">List</div>
+  </div>
  </div><!--row-->
 </div><!--upd-->
 </div><!--frmgrp-->
 </form> 
-</div>
 
-    <div id="btfx"  class="bg-light fixed-bottom">
+
+
 <form class="form-horizontal" role="form" method="POST">
- <h6><b>Indicator and Score</b></h6>
+ <h5><b>Indicator and Score</b></h5>
 <div class="row"> <!-- Grid row -->
   <!-- Grid column --> 
-<div class="col-6 md-form mt-0"> 
+<div class="col-12 md-form mt-0"> 
   <!-- Material input -->
 ​<select name="mode">
   <option value="" disabled selected hidden>Mode</option>
@@ -152,7 +147,7 @@ color:grey;
   <option value="Life Skill">Life Skill</option>
 </select>
 </div> <!-- Grid column -->
-   <div class="col-6 md-form mt-0"> 
+   <div class="col-12 md-form mt-0"> 
   <!-- Material input -->
 ​<select name="level">
   <option value="" disabled selected hidden>Level</option>
@@ -171,7 +166,7 @@ color:grey;
 </select>
 </div> <!-- Grid column -->
   <!-- Grid column --> 
-<div class="col-8 md-form mt-0"> 
+<div class="col-12 md-form mt-0"> 
   <!-- Material input -->
 ​<select name="indicator">
   <option value="" disabled selected hidden>Select Indicator</option>
@@ -190,19 +185,23 @@ color:grey;
 </select>
 </div> <!-- Grid column -->
  <!-- Grid column -->
-  <div class="col-4 md-form mt-4">
+  <div class="col-12 md-form mt-4">
    <!-- Material input -->
   <input type="number" class="form-control" name="score" placeholder="Score" > 
   </div> <!-- Grid column --> 
 </div> <!-- Grid row -->
-<div class="container">
+<div class="col-12">
         <!-- btn-primary -->
-           <button id="submit" type="submit" class="btn"  value="Submit">Submit</button>
-<!-- Modal Trigger -->
-  <button id="li" class="waves-effect waves-light btn  modal-trigger" href="#modal1">Last inserted</button>
+  <button id="submit" type="submit" class="btn col-4"  value="Submit">Submit</button>
+
  </div>
-  </div><!--frmgrp-->         </form>
-   </div><!--jmb-->
+ <!-- Modal Trigger -->
+  <button id="li" class="waves-effect waves-light btn col-12 modal-trigger" href="#modal1">Last inserted</button>
+  </div><!--frmgrp-->
+         </form>
+</div>  <!-- jumbotron -->
+
+
 <!--side Nav -->
   <ul id="slide-out" class="sidenav fixed">
  <div class="user-view">
@@ -210,7 +209,7 @@ color:grey;
         <img src="images/imgt.jpg">
       </div>
  <h5 class="white-text" >User: <?php echo $_SESSION['spiusername']; ?></h5> 
- <div id="ru" class="row"> <p><a class="log" href="index.php" class="blue-text">Sign Out</a> </p>  <p id="delacc">Delete Account</p>
+ <div id="ru" class="row"> <p><a class="log" href="#" class="blue-text">Sign Out</a> </p>  <p id="delacc">Delete Account</p>
 </div>
  </div>
 <li class="nav-item"> <a class="nav-link " href="view.php"><i class="material-icons">developer_board</i>View</a> </li> 
@@ -225,7 +224,7 @@ var slt=$('[name=sem]').val().concat($('[name=slot]').val());
 if(slt.length==9){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'register_backend.php',
     data:{a:"update"},
     success: function(data){
     if(""!==data){
@@ -233,7 +232,7 @@ if(slt.length==9){
       $("#upd").html(data);
       
 $(".card-header").click(function(){
-	 $(this).addClass("one");
+   $(this).addClass("one");
   });//clk
     }//if
    
@@ -256,7 +255,7 @@ var lvl =$('[name=level]').val();
 var slt=$('[name=sem]').val().concat($('[name=slot]').val());
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'register_backend.php',
     data:{Name:zn,reg:zr,tname:tname,indct:ind,mode:md,level:lvl,slot:slt,scr:sr,a:"insert"},
     success: function(data){
  if(""!==data){
@@ -269,15 +268,16 @@ var slt=$('[name=sem]').val().concat($('[name=slot]').val());
 }//if
    $("#up").trigger("click");
   // $(".card-header").removeClass("one");
-  	$('[name=score]').val("");
+    $('[name=score]').val("");
   });//clk
   
  $("#li").click(function(){
 var tname =$(".card-header").attr("sec");
 var mnt="<?php echo $_SESSION['spiusername']; ?>";
+if (tname!=undefined){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'register_backend.php',
     data:{tname:tname,mnt:mnt,a:"last"},
     success: function(data){
     if(""!==data){
@@ -285,6 +285,7 @@ var mnt="<?php echo $_SESSION['spiusername']; ?>";
     }
     }//suc
     });//aj
+}//if
   });//clk
   
   $("[name=indicator],[name=mode],[name=level]").change(function(){
@@ -350,10 +351,11 @@ $('[name=score]').val(sr[ind][md][lv]);
   $("#log").click(function(){
  $.ajax({
     type: "POST",
-    url: 'demo.php',
-    data:{logout:"yes"},
+    url: 'exit.php',
+    data:{exit:"logout"},
     success: function(data){
-      
+      console.log(data);
+      header("location:index.php");
     }//suc
     });//aj
 });//clk
@@ -392,9 +394,9 @@ var elems = document.querySelectorAll('.fixed-action-btn');
 </body>
 <script>
 //after loading
- $.ajax({
+/* $.ajax({
     type: "POST",
-    url: 'demo.php',
+    url: 'logout.php',
     data:{logout:"check"},
     success: function(data){
     if("False"==data){
@@ -402,6 +404,6 @@ var elems = document.querySelectorAll('.fixed-action-btn');
     }
     //redirect
     }//suc
-    });//aj
+    });//aj*/
 </script>
 </html>

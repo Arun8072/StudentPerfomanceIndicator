@@ -59,8 +59,8 @@ $ses=True;
         }} 
     }//wh
     if(isset($ses) && $ses==True){
-echo "Please ".$_SESSION['spiusername'].
-      "<h2><a href = \"logout.php\">Sign Out</a></h2>";
+echo $_SESSION['spiusername'].
+      "<h2><a href = \"logout.php\">Please Sign Out</a></h2>";
         }
     }//res
  $conn->close();

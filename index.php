@@ -87,7 +87,7 @@ echo $_SESSION['spiusername'].
 <body>
 	
 	
-	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+	<div class="container-login100" style="">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			
   <ul id="nv" class="nav nav-tabs bg-transparent nav-pills justify-content-center" role="tablist">
@@ -174,10 +174,10 @@ echo $_SESSION['spiusername'].
 <span class="focus-input100"></span>				</div> 
              
 <div class="wrap-input100 validate-input2 m-b-20" >
-					<input class="input100" type="text" name="cc" placeholder="your class as a CC "><span class="focus-input100"></span>				</div> <small class="form-text text-muted"> Example:2017-2021-CSE-A</small>
+					<input class="input100" type="text" name="cc" placeholder="Your class as a CC "><span class="focus-input100"></span>				</div> <small class="form-text text-muted"> Example:2017-2021-CSE-A</small>
 				
 <div class="wrap-input100 validate-input2 m-b-20" >
-					<input class="input100" type="text" name="class1" placeholder="your class as a mentor ">
+					<input class="input100" type="text" name="class1" placeholder="Your class as a mentor ">
 					<span class="focus-input100"></span>
 				</div> 
 				

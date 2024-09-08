@@ -133,7 +133,7 @@ font-family:Ubuntu-Medium;
 #tfs{
  overflow:auto;
  overflow-x:scroll;
- max-height:33px;
+ min-height:33px;
  display:flex;
  flex-flow: column wrap;
 }
@@ -328,8 +328,8 @@ $(document).ready(function(){
 $("#t2").click(function(){
  $.ajax({
     type: "POST",
-    url: 'view_backend.php',
-    data:{dept:"all",a:"fview"},
+    url: 'sort.php',
+    data:{year:"",dept:"all",a:"fview"},
     success: function(data){
       $("#clg").html(data);
       

@@ -636,12 +636,14 @@ $(this).insertAfter($(this).next());
   });//aj
 });//clk
 
+//for transferring data from funtion to function
 function gl_var(data,type){
-
+  //setter
  if(type=="set"){
   jsonData=data;
   //console.log(jsonData);
  }
+ //getter
  if(type=="get"){
   return jsonData;
  }
@@ -657,8 +659,9 @@ $("#t5").click(function(){
       
        js_data=JSON.parse(data);
        
+       //set value to another function for tranferring data to drawchart function
         gl_var(js_data.dep,"set");
-      //$("#chrt").html(data.dep1.AB12);
+
 
       // Load Charts and the corechart and barchart packages.
       google.charts.load('current', {'packages':['corechart']});

@@ -209,7 +209,7 @@ color:grey;
         <img src="images/imgt.jpg">
       </div>
  <h5 class="white-text" >User: <?php echo $_SESSION['spiusername']; ?></h5> 
- <div id="ru" class="row"> <p><a class="log" href="#" class="blue-text">Sign Out</a> </p>  <p id="delacc">Delete Account</p>
+ <div id="ru" class="row"> <p><a class="log" href="index.php" class="blue-text">Sign Out</a> </p>  <p id="delacc">Delete Account</p>
 </div>
  </div>
 <li class="nav-item"> <a class="nav-link " href="view.php"><i class="material-icons">developer_board</i>View</a> </li> 
@@ -348,13 +348,12 @@ var sr=[
 $('[name=score]').val(sr[ind][md][lv]);
  });//cng
   
-  $("#log").click(function(){
+  $(".log").click(function(){
  $.ajax({
     type: "POST",
     url: 'exit.php',
     data:{exit:"logout"},
     success: function(data){
-      console.log(data);
       header("location:index.php");
     }//suc
     });//aj

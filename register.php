@@ -347,11 +347,13 @@ var sr=[
 $('[name=score]').val(sr[ind][md][lv]);
  });//cng
   
- $("#log").click(function(){
+ $(".log").click(function(){
  $.ajax({
     type: "POST",
     url: 'exit.php',
-    data:{exit:"logout"}
+    data:{exit:"logout"},
+     success: function(data){
+    }//suc
     });//aj
  });//clk
  

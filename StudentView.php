@@ -13,7 +13,6 @@ if(!(isset($_COOKIE['studreg']) || isset($_COOKIE['spiusername']) )){
  <title>SPI-Student Performance Indicator</title>
 
     <!-- Bootstrap CDN commands -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   
@@ -151,7 +150,7 @@ width:70%;
 }
 .flip-card {
   background-color: transparent;
-  width: 250px;
+  width: 330px;
   height: 140px;
   border: 1px solid #f1f1f1; 
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
@@ -198,6 +197,37 @@ font-family:Ubuntu-Bold;
 font-size:22px;
 }
 a{text-decoration:none;}
+/* Style the popup container */
+.popup-container {
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Style the popup itself */
+.popup {
+  background-color: white; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Hide the popup by default */
+.popup-container {
+  display: none; /* Hide the popup */
+}
+
+/* Show the popup when needed */
+.show-popup {
+  display: flex; /* Show the popup */
+}
+
 </style>
 </head>
 <body>
@@ -301,9 +331,31 @@ a{text-decoration:none;}
 </div>
  
  <div id="chrt_tab" class="col s12"><br>
-<center><div id="chrt">
-
-</div></center>
+<center>
+<div id="chrt">
+<!--Table and divs that hold the pie charts-->
+    <table class="col s7">
+      <tr>
+        <td><div id="barchart_dep" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_cse" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_ece" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_eee" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_mech" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_civil" style="border: 1px solid #ccc"></div></td>
+      </tr>
+    </table>
+</div>
+</center>
 </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -335,7 +387,7 @@ $("#t2").click(function(){
       
  var i=1;
 while(i!==0){
-i=1;
+i=1; //mandatory
 $("#clg li").each(function(){
 if($(this).val()<$(this).next().val()){
 $(this).insertAfter($(this).next());
@@ -348,18 +400,48 @@ $(this).insertAfter($(this).next());
     }//suc
  });//aj
 });//clk
+   
     
 $(".dep").click(function(){
 var dept = $(this).attr("value");
  $.ajax({
     type: "POST",
     url: 'sort.php',
-    data:{dept:dept,a:"dview"},
+    data:{year:"",dept:dept,a:"dview"},
     success: function(data){
       $("#clg").html(data);
  $(".card-text").attr("dept",dept);
  
-  var i=1;
+  //sorting
+ var i=1;
+while(i!==0){
+i=1; //mandatory
+$("#clg li").each(function(){
+if($(this).val()<$(this).next().val()){
+$(this).insertAfter($(this).next());
+  i++;
+  }//if
+ });//ech
+ if(i==1){break;}
+}//wh
+  //sorting
+  
+    }//suc
+    });// aj
+});//clk
+
+$(".card-text").click(function(){
+var year = $(this).attr("yr");
+var dept = $(this).attr("dept");
+
+ $.ajax({
+    type: "POST",
+    url: 'sort.php',
+    data:{year:year,dept: dept,a:"dview"},
+    success: function(data){
+      $("#clg").html(data);
+    
+ var i=1;
 while(i!==0){
 i=1;
 $("#clg li").each(function(){
@@ -370,10 +452,9 @@ $(this).insertAfter($(this).next());
  });//ech
  if(i==1){break;}
 }//wh
- 
+
     }//suc
-    });// aj
-  
+    });//aj
 });//clk
 
 $(".card-text").click(function(){
@@ -401,9 +482,11 @@ $(this).insertAfter($(this).next());
     }//suc
     });//aj
 });//clk
+
 function srbrd(d){
- $("#report").append("<div class="+"flip-card value="+d.AB12+"> <div class="+"flip-card-inner"+"> <div class="+"flip-card-front"+"> <h4>"+d.AB12+"</h4> <h5>"+d.dep+"</h5> </div> <div class="+"flip-card-back col"+"> <div class="+"row"+"> <div class="+"col"+"> <p>1st year (<span>"+d.AB1+"</span>)</p> <p>A : <span>"+d.A1+"</span></p> <p>B : <span>"+d.B1+"</span></p> </div> <div class="+"col"+"> <p>2nd year (<span>"+d.AB2+"</span>)</p> <p>A : <span>"+d.A2+"</span></p> <p>B : <span>"+d.B2+"</span></p> </div> <div class="+"col"+"> <p>3rd year (<span>"+d.AB3+"</span>)</p> <p>A : <span>"+d.A3+"</span></p> <p>B : <span>"+d.B3+"</span></p> </div> </div><!--row--> </div><!--fcb--> </div><!--fci--> </div><!--fc--><br>");
+ $("#report").append("<div class="+"flip-card value="+d.AB03+"> <div class="+"flip-card-inner"+"> <div class="+"flip-card-front"+"> <h4>"+d.AB03+"</h4> <h5>"+d.dep+"</h5> </div> <div class="+"flip-card-back col"+"> <div class="+"row"+"> <div class="+"col"+"> <p>1st year (<span>"+d.AB0+"</span>)</p> <p>A : <span>"+d.A0+"</span></p> <p>B : <span>"+d.B0+"</span></p> </div> <div class="+"col"+"> <p>2nd year (<span>"+d.AB1+"</span>)</p> <p>A : <span>"+d.A1+"</span></p> <p>B : <span>"+d.B1+"</span></p> </div> <div class="+"col"+"> <p>3rd year (<span>"+d.AB2+"</span>)</p> <p>A : <span>"+d.A2+"</span></p> <p>B : <span>"+d.B2+"</span></p> </div> <div class="+"col"+"> <p>4th year (<span>"+d.AB3+"</span>)</p> <p>A : <span>"+d.A3+"</span></p> <p>B : <span>"+d.B3+"</span></p> </div>  </div><!--row--> </div><!--fcb--> </div><!--fci--> </div><!--fc--><br>");
 }
+
 $("#t3").click(function(){
   $("#report").text("");
   $.ajax({
@@ -412,26 +495,166 @@ $("#t3").click(function(){
     data:{an:"report"},
     success: function(data){
     data=JSON.parse(data); 
- //   $("#report").html(data);
- srbrd(data.dep0);
- srbrd(data.dep1);
- srbrd(data.dep2);
- srbrd(data.dep3);
- srbrd(data.dep4);
-	}//suc
+   /// $("#report").html(data);
+ srbrd(data.dep.cse);
+ srbrd(data.dep.ece);
+ srbrd(data.dep.eee);
+ srbrd(data.dep.mech);
+ srbrd(data.dep.civil);
+ }//suc
   });//aj
 }); //clk
+
+//for transferring data from funtion to function
+function gl_var(data,type){
+  //setter
+ if(type=="set"){
+  jsonData=data;
+  //console.log(jsonData);
+ }
+ //getter
+ if(type=="get"){
+  return jsonData;
+ }
+}
 
 $("#t4").click(function(){
  $.ajax({
     type: "POST",
     url: 'report.php',
     data:{an:"report"},
+
     success: function(data){
       
-      data=JSON.parse(data); 
-    $("#chrt").html(data);
+       js_data=JSON.parse(data);
+       
+       //set value to another function for tranferring data to drawchart function
+        gl_var(js_data.dep,"set");
 
+
+      // Load Charts and the corechart and barchart packages.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart and bar chart when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        //getting value from out of the function
+        jsonData=gl_var("nothing","get");
+
+         //for all department
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+      
+        data.addRows([
+          [jsonData.cse.dep, jsonData.cse.AB03],
+          [jsonData.ece.dep, jsonData.ece.AB03],
+          [jsonData.eee.dep, jsonData.eee.AB03],
+          [jsonData.mech.dep, jsonData.mech.AB03],
+          [jsonData.civil.dep, jsonData.civil.AB03]
+        ]);
+
+        var barchart_options = {title:'Barchart: For All Departments',
+                       width:400,
+                       height:300,
+                       legend: 'none'};
+        var barchart = new google.visualization.ColumnChart(document.getElementById('barchart_dep'));
+        barchart.draw(data, barchart_options);
+
+       //for cse department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+
+        data.addRows([
+          ["year 1", jsonData.cse.AB0],
+          ["year 2", jsonData.cse.AB1],
+          ["year 3", jsonData.cse.AB2],
+          ["year 4", jsonData.cse.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For CSE Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_cse'));
+        piechart.draw(data, piechart_options);
+
+        //for ece department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.ece.AB0],
+          ["year 2", jsonData.ece.AB1],
+          ["year 3", jsonData.ece.AB2],
+          ["year 4", jsonData.ece.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For ECE Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_ece'));
+        piechart.draw(data, piechart_options);
+
+        //for eee department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.eee.AB0],
+          ["year 2", jsonData.eee.AB1],
+          ["year 3", jsonData.eee.AB2],
+          ["year 4", jsonData.eee.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For EEE Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_eee'));
+        piechart.draw(data, piechart_options);
+
+        //for mech department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.mech.AB0],
+          ["year 2", jsonData.mech.AB1],
+          ["year 3", jsonData.mech.AB2],
+          ["year 4", jsonData.mech.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For MECH Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_mech'));
+        piechart.draw(data, piechart_options);
+
+        //for civil department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.civil.AB0],
+          ["year 2", jsonData.civil.AB1],
+          ["year 3", jsonData.civil.AB2],
+          ["year 4", jsonData.civil.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For CIVIL Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_civil'));
+        piechart.draw(data, piechart_options);
+
+      }
+   
     }//suc
  });//aj
 });//clk
@@ -452,6 +675,18 @@ $(".log").click(function(){
     });//aj
 });//clk
 
+function showPopUp(message){
+  //add show class
+document.querySelector('.popup-container').classList.add('show-popup');
+//write message
+$("#alert-message").text(message);
+//close
+document.querySelector('.popup').addEventListener('click', function() {
+ document.querySelector('.popup-container').classList.remove('show-popup');
+});
+
+} //showPopUp
+
 $("#dft").click(function(){
  var slt=$('[name=sem]').val().concat($('[name=slot]').val());
  $.ajax({
@@ -459,7 +694,8 @@ $("#dft").click(function(){
     url: 'cookie.php',
     data:{cnm:"slot",cvl:slt,cki:"y"},
     success: function(data){
-    alert(data);
+    showPopUp(data);
+
 	}//suc
   });//aj
 });//clk
@@ -496,7 +732,6 @@ $("#close").click(function(){
  <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   
-      <script src="js/bootstrap.min.js"></script>
  
   <!--side nav activation-->
  <script> document.addEventListener('DOMContentLoaded', function() {

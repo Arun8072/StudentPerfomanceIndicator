@@ -289,7 +289,7 @@ a{text-decoration:none;}
 </select>
   </span> <!-- Grid column -->
    <span class="col-4">
-<span id="dft" class="waves-effect" ><a href="view.php">Set Default</a></span>
+<span id="dft" class="waves-effect" ><a href="StudentView.php">Set Default</a></span>
   </span> <!-- Grid column -->
   </div> 
   </ul>

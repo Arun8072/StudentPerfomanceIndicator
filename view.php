@@ -12,7 +12,7 @@
  <title>SPI-Student Performance Indicator</title>
 
     <!-- Bootstrap CDN commands -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   
@@ -131,7 +131,7 @@ width:70%;
 }
 .flip-card {
   background-color: transparent;
-  width: 250px;
+  width: 300px;
   height: 140px;
   border: 1px solid #f1f1f1; 
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
@@ -191,6 +191,38 @@ color:white;
   }
 }
 */
+
+/* Style the popup container */
+.popup-container {
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Style the popup itself */
+.popup {
+  background-color: white; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Hide the popup by default */
+.popup-container {
+  display: none; /* Hide the popup */
+}
+
+/* Show the popup when needed */
+.show-popup {
+  display: flex; /* Show the popup */
+}
+
 </style>
 </head>
 <body>
@@ -342,6 +374,18 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
 </div></center>
 </div>
 
+
+
+<!-- The popup container -->
+<div class="popup-container">
+  <!-- The popup itself -->
+  <div class="popup">
+    <!-- The alert message -->
+    <p id="alert-message">This is a small alert message !</p>
+  </div>
+</div>
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <!-- google chart -->
@@ -390,7 +434,8 @@ a++;
 //end-break
      }
   });//ech 
-alert("avg count- "+a);
+var avg="avg count- "+a;
+showPopUp(avg);
 }//fu
 
 $("#ord").click(function(){
@@ -423,8 +468,10 @@ $("#cl li").each(function(){
 i+=$(this).val();
 j+=1;
  });//ech
-var k=i/j;
-alert(k);
+var avg=i/j;
+var avg= "Average = "+avg;
+showPopUp(avg);
+
 });//clk
 
 //try to make load once not for every click
@@ -544,7 +591,7 @@ $(this).insertAfter($(this).next());
 });//clk
 
 function srbrd(d){
- $("#report").append("<div class="+"flip-card value="+d.AB12+"> <div class="+"flip-card-inner"+"> <div class="+"flip-card-front"+"> <h4>"+d.AB12+"</h4> <h5>"+d.dep+"</h5> </div> <div class="+"flip-card-back col"+"> <div class="+"row"+"> <div class="+"col"+"> <p>1st year (<span>"+d.AB1+"</span>)</p> <p>A : <span>"+d.A1+"</span></p> <p>B : <span>"+d.B1+"</span></p> </div> <div class="+"col"+"> <p>2nd year (<span>"+d.AB2+"</span>)</p> <p>A : <span>"+d.A2+"</span></p> <p>B : <span>"+d.B2+"</span></p> </div> <div class="+"col"+"> <p>3rd year (<span>"+d.AB3+"</span>)</p> <p>A : <span>"+d.A3+"</span></p> <p>B : <span>"+d.B3+"</span></p> </div> </div><!--row--> </div><!--fcb--> </div><!--fci--> </div><!--fc--><br>");
+ $("#report").append("<div class="+"flip-card value="+d.AB03+"> <div class="+"flip-card-inner"+"> <div class="+"flip-card-front"+"> <h4>"+d.AB03+"</h4> <h5>"+d.dep+"</h5> </div> <div class="+"flip-card-back col"+"> <div class="+"row"+"> <div class="+"col"+"> <p>1st year (<span>"+d.AB0+"</span>)</p> <p>A : <span>"+d.A0+"</span></p> <p>B : <span>"+d.B0+"</span></p> </div> <div class="+"col"+"> <p>2nd year (<span>"+d.AB1+"</span>)</p> <p>A : <span>"+d.A1+"</span></p> <p>B : <span>"+d.B1+"</span></p> </div> <div class="+"col"+"> <p>3rd year (<span>"+d.AB2+"</span>)</p> <p>A : <span>"+d.A2+"</span></p> <p>B : <span>"+d.B2+"</span></p> </div> <div class="+"col"+"> <p>4th year (<span>"+d.AB3+"</span>)</p> <p>A : <span>"+d.A3+"</span></p> <p>B : <span>"+d.B3+"</span></p> </div>  </div><!--row--> </div><!--fcb--> </div><!--fci--> </div><!--fc--><br>");
 }
 $("#t4").click(function(){
   $("#report").text("");
@@ -554,12 +601,13 @@ $("#t4").click(function(){
     data:{an:"report"},
     success: function(data){
     data=JSON.parse(data); 
- //   $("#report").html(data);
- srbrd(data.dep0);
- srbrd(data.dep1);
- srbrd(data.dep2);
- srbrd(data.dep3);
- srbrd(data.dep4);
+   /// $("#report").html(data);
+ srbrd(data.dep.cse);
+ srbrd(data.dep.ece);
+ srbrd(data.dep.eee);
+ srbrd(data.dep.mech);
+ srbrd(data.dep.civil);
+
 /* var i=1;
 while(i!==0){
 i=1;
@@ -581,10 +629,12 @@ $("#t5").click(function(){
     type: "POST",
     url: 'report.php',
     data:{an:"report"},
+
     success: function(data){
       
-      data=JSON.parse(data); 
-      //$("#chrt").html(data.dep1.AB12);
+      data=JSON.parse(data);
+      console.log(data.dep); 
+    /*  //$("#chrt").html(data.dep1.AB12);
 
       // Load Charts and the corechart and barchart packages.
       google.charts.load('current', {'packages':['corechart']});
@@ -598,13 +648,13 @@ $("#t5").click(function(){
         data.addColumn('string', 'Class');
         data.addColumn('number', 'Score');
         
-        /*
+        
         var x = "["+myFunction("Mushrooms",5)+","+myFunction("swsd",4)+"]";
           
         function myFunction(a,b) {
            return "[\'"+a+"\' , \'"+b+"\']";
         }
-        */
+        
         data.addRows([
           ['Mushrooms', 3],
           ['Onions', 1],
@@ -626,7 +676,7 @@ $("#t5").click(function(){
         var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
         barchart.draw(data, barchart_options);
       }
-      
+   */   
     }//suc
  });//aj
 });//clk
@@ -649,7 +699,7 @@ $("#dft").click(function(){
     url: 'cookie.php',
     data:{cnm:"slot",cvl:slt,cki:"y"},
     success: function(data){
-    alert(data);
+    showPopUp(data);
     window.location="view.php";
 	}//suc
   });//aj
@@ -693,6 +743,17 @@ $("#delacc").click(function(e){
     });//aj
 });//cl
 
+function showPopUp(message){
+  //add show class
+document.querySelector('.popup-container').classList.add('show-popup');
+//write message
+$("#alert-message").text(message);
+//close
+document.querySelector('.popup').addEventListener('click', function() {
+ document.querySelector('.popup-container').classList.remove('show-popup');
+});
+
+} //showPopUp
 
 });//doc
 </script>
@@ -703,15 +764,17 @@ $("#delacc").click(function(e){
  <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   
-      <script src="js/bootstrap.min.js"></script>
+      <!-- <script src="js/bootstrap.min.js"></script> -->
  
   <!--side nav activation-->
  <script> document.addEventListener('DOMContentLoaded', function() {
 M.AutoInit();
   });
 
- var slt=$('[name=sem]').val().concat($('[name=slot]').val());
- alert(slt);
+/* var sll=$('[name=slot]').val();
+ var stt=$('[name=sem]').val();
+ let slt=stt.concat(sll);
+*/
 </script>
  
 </body>

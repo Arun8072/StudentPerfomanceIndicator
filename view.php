@@ -364,10 +364,22 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
  <!--Table and divs that hold the pie charts-->
     <table class="col s7">
       <tr>
-        <td><div id="piechart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="barchart_dep" style="border: 1px solid #ccc"></div></td>
       </tr>
       <tr>
-        <td><div id="barchart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="piechart_cse" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_ece" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_eee" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_mech" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td><div id="piechart_civil" style="border: 1px solid #ccc"></div></td>
       </tr>
     </table>
 
@@ -624,6 +636,17 @@ $(this).insertAfter($(this).next());
   });//aj
 });//clk
 
+function gl_var(data,type){
+
+ if(type=="set"){
+  jsonData=data;
+  //console.log(jsonData);
+ }
+ if(type=="get"){
+  return jsonData;
+ }
+}
+
 $("#t5").click(function(){
  $.ajax({
     type: "POST",
@@ -632,9 +655,10 @@ $("#t5").click(function(){
 
     success: function(data){
       
-      data=JSON.parse(data);
-      console.log(data.dep); 
-    /*  //$("#chrt").html(data.dep1.AB12);
+       js_data=JSON.parse(data);
+       
+        gl_var(js_data.dep,"set");
+      //$("#chrt").html(data.dep1.AB12);
 
       // Load Charts and the corechart and barchart packages.
       google.charts.load('current', {'packages':['corechart']});
@@ -644,39 +668,121 @@ $("#t5").click(function(){
 
       function drawChart() {
 
+        //getting value from out of the function
+        jsonData=gl_var("nothing","get");
+
+         //for all department
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Class');
         data.addColumn('number', 'Score');
-        
-        
-        var x = "["+myFunction("Mushrooms",5)+","+myFunction("swsd",4)+"]";
-          
-        function myFunction(a,b) {
-           return "[\'"+a+"\' , \'"+b+"\']";
-        }
-        
+      
         data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
+          [jsonData.cse.dep, jsonData.cse.AB03],
+          [jsonData.ece.dep, jsonData.ece.AB03],
+          [jsonData.eee.dep, jsonData.eee.AB03],
+          [jsonData.mech.dep, jsonData.mech.AB03],
+          [jsonData.civil.dep, jsonData.civil.AB03]
         ]);
-        
-        var piechart_options = {title:'Pie Chart: How Much Pizza I Ate Last Night',
-                       width:400,
-                       height:300};
-        var piechart = new google.visualization.PieChart(document.getElementById('piechart_div'));
-        piechart.draw(data, piechart_options);
 
-        var barchart_options = {title:'Barchart: How Much Pizza I Ate Last Night',
+        var barchart_options = {title:'Barchart: For All Departments',
                        width:400,
                        height:300,
                        legend: 'none'};
-        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+        var barchart = new google.visualization.ColumnChart(document.getElementById('barchart_dep'));
         barchart.draw(data, barchart_options);
+
+       //for cse department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+
+        data.addRows([
+          ["year 1", jsonData.cse.AB0],
+          ["year 2", jsonData.cse.AB1],
+          ["year 3", jsonData.cse.AB2],
+          ["year 4", jsonData.cse.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For CSE Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_cse'));
+        piechart.draw(data, piechart_options);
+
+        //for ece department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.ece.AB0],
+          ["year 2", jsonData.ece.AB1],
+          ["year 3", jsonData.ece.AB2],
+          ["year 4", jsonData.ece.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For ECE Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_ece'));
+        piechart.draw(data, piechart_options);
+
+        //for eee department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.eee.AB0],
+          ["year 2", jsonData.eee.AB1],
+          ["year 3", jsonData.eee.AB2],
+          ["year 4", jsonData.eee.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For EEE Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_eee'));
+        piechart.draw(data, piechart_options);
+
+        //for mech department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.mech.AB0],
+          ["year 2", jsonData.mech.AB1],
+          ["year 3", jsonData.mech.AB2],
+          ["year 4", jsonData.mech.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For MECH Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_mech'));
+        piechart.draw(data, piechart_options);
+
+        //for civil department
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Class');
+        data.addColumn('number', 'Score');
+        
+        data.addRows([
+          ["year 1", jsonData.civil.AB0],
+          ["year 2", jsonData.civil.AB1],
+          ["year 3", jsonData.civil.AB2],
+          ["year 4", jsonData.civil.AB3],
+        ]);
+
+        var piechart_options = {title:'Pie Chart: For CIVIL Departments',
+                       width:400,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_civil'));
+        piechart.draw(data, piechart_options);
+
       }
-   */   
+   
     }//suc
  });//aj
 });//clk

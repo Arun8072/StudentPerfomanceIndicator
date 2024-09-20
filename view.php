@@ -222,7 +222,9 @@ color:white;
 .show-popup {
   display: flex; /* Show the popup */
 }
-
+.clsName{
+font-family: Ubuntu-Medium;
+}
 </style>
 </head>
 <body>
@@ -458,7 +460,6 @@ var cl= $(this).attr("name");
     data:{class:cl,ord:"y",a:"view"},
     success: function(data){
       $("#cl").html(data);
-  avg();
     }//suc
     });//aj
 });//clk
@@ -506,7 +507,6 @@ $("#ordr").click(function(){
     data:{class:"c1",ord:"y",a:"view"},
     success: function(data){
       $("#cla").html(data);
-   avg();
     }//suc
     });//aj
 });//clk

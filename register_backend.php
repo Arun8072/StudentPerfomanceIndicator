@@ -44,7 +44,7 @@ if(intval(substr($_POST['tname'],0,4))>intval(substr($_POST['tname'],4,4))){die(
 if(strlen($Name) >3 &&  isset($_POST['reg']) &&  strlen($reg)==12 && strlen($tname)<15){
 
 // sql to create table
-$sql = "CREATE TABLE IF NOT EXISTS {$tname} (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, RegisterNumber VARCHAR(12) NOT NULL, Name VARCHAR(30) NOT NULL,Indicator VARCHAR(40) NOT NULL,Mode VARCHAR(8),Level VARCHAR(12),Slot VARCHAR(9),Score VARCHAR(3) NOT NULL,Mentor VARCHAR(20) NOT NULL )";
+$sql = "CREATE TABLE IF NOT EXISTS {$tname} (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, RegisterNumber VARCHAR(12) NOT NULL, Name VARCHAR(30) NOT NULL,Indicator VARCHAR(20) NOT NULL,Mode VARCHAR(10),Level VARCHAR(12),Slot VARCHAR(9),Score VARCHAR(3) NOT NULL,Mentor VARCHAR(25) NOT NULL )";
 
 if ($conn->query($sql) ===FALSE) {
    echo "<br>Error creating table: " . $conn->error;

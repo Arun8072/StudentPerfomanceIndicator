@@ -195,7 +195,7 @@ color:grey;
   <option value="Training">Training</option>
   <option value="Journal">Journal</option>
   <option value="Guest lecture">Guest lecture</option>
-  <option value="Pattern">Pattern</option>
+  <option value="Pattern">Patent</option>
 </select>
 </div> <!-- Grid column -->
  <!-- Grid column -->

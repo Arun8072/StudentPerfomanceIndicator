@@ -88,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         elseif ($result==true && $result->num_rows > 0) {
             // output data of each row
+            echo "<div class='center clsName mb-3'>".strtoupper($cls)."</div>";
             while ($row = $result->fetch_assoc()) {
                 $reg = $row["RegisterNumber"];
                 $tl = $row["SUM(Score)"];

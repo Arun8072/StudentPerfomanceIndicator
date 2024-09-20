@@ -1,4 +1,5 @@
 <?php
+//todo : check sign out problem
 if(!(isset($_COOKIE['studreg']) || isset($_COOKIE['spiusername']) )){
    die(header("location:index.php"));
  }

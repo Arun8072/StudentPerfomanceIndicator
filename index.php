@@ -104,7 +104,7 @@ echo $_SESSION['spiusername'].
 <span class="tab-content">
  <div id="S-login" class="container tab-pane fade" style="word-break: break-all;">
  <span class="login100-form-title p-b-37"> Student's Login</span>
-<form id="form1" class="login100-form validate-form" method="POST" action="<?php echo htmlentities('logout.php'); ?>" >   
+<form id="form1" class="login100-form validate-form" method="POST" action="<?php echo htmlentities('student_verification.php'); ?>" >   
 		<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Name">
 	<input class="input100" type="text" name="studname" placeholder="Name">
 					<span class="focus-input100"></span>

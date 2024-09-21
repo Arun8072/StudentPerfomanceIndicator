@@ -241,15 +241,16 @@ a{text-decoration:none;}
 </div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
   </div><!--nav-wrap-->
   
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <li> <a class="log" href="index.php" class="blue-text">Sign Out</a> </li>
-      </ul>
+          
+      
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
         <li id="t1" class="tab"><a class="active" href="#student" style="text-decoration:none;"><i class="small material-icons">contacts</i></a></li>
       	<li id="t2" class="tab"><a href="#college" style="text-decoration:none;"> <i class="small material-icons">dashboard</i></a></li>
         <li id="t3" class="tab"><a href="#rpt" style="text-decoration:none;"> <i class="small material-icons">event_note</i></a></li>
         <li id="t4" class="tab"><a href="#chrt_tab" style="text-decoration:none;" ><i class="small material-icons">data_usage</i></a></li>
+         <li id="t5" class="tab"><a class="log right hide-on-med-and-down" href="index.php" class="blue-text">Sign Out</a></li>
+        
       </ul>
     </div>
      </nav>
@@ -259,7 +260,8 @@ a{text-decoration:none;}
       <div class="background">
         <img src="images/imgt.jpg">
       </div>
-<h6 class="white-text" ><?php echo $_COOKIE['studreg']; ?></h6>  
+
+<h6 class="white-text" ><?php echo $_COOKIE['studreg']; ?></h6>
      <a class="log" href="index.php" class="blue-text">Sign Out</a>
  </div>   
 <div class="row"> 
@@ -290,7 +292,12 @@ a{text-decoration:none;}
 </select>
   </span> <!-- Grid column -->
    <span class="col-4">
-<span id="dft" class="waves-effect" ><a href="StudentView.php">Set Default</a></span>
+<span id="dft" class="waves-effect" >
+  <a href="StudentView.php">Set Default</a>
+<?php if (isset($_COOKIE["slot"])){
+echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>'; 
+} ?>
+</span>
   </span> <!-- Grid column -->
   </div> 
   </ul>
@@ -357,6 +364,16 @@ a{text-decoration:none;}
     </table>
 </div>
 </center>
+</div>
+
+
+<!-- The popup container -->
+<div class="popup-container">
+  <!-- The popup itself -->
+  <div class="popup">
+    <!-- The alert message -->
+    <p id="alert-message">This is a small alert message !</p>
+  </div>
 </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -665,6 +682,8 @@ $(".log").click(function(){
     type: "POST",
     url: 'cookie.php', 
     data:{cnm:"studreg",cvl:"",cki:"y"},
+    success: function(data){
+  }//suc
     });//aj
  $.ajax({
     type: "POST",

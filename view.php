@@ -392,7 +392,7 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
 
 <!-- The popup container -->
 <div class="popup-container">
-  <!-- The popup itself -->
+  <!-- The popup itself    -->
   <div class="popup">
     <!-- The alert message -->
     <p id="alert-message">This is a small alert message !</p>

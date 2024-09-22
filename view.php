@@ -225,39 +225,20 @@ color:white;
 .clsName{
 font-family: Ubuntu-Medium;
 }
+header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
 </style>
 </head>
 <body>
-<nav class="nav-extended center">
-    <div class="nav-wrapper">
- <a class="brand-logo center" style="text-decoration:none;"> <i class="material-icons">school</i>SPI</a>
-      <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;" ><i class="material-icons">menu</i></a>
-      
-<div id="searchf" class="row hide"> <input id="sch" type="search" class="form-control input-field " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" required> <i id="close" class="material-icons tiny">close</i>
-</div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
-  </div><!--nav-wrap-->
-
-   <ul id="nav-mobile" class="right hide-on-med-and-down">
-<li class="nav-item active"><a class="nav-link disabled" href="view.php"><i class="material-icons d-lg-none d-xl-none">developer_board</i>View</a></li> 
-<li class="nav-item "> <a class="nav-link " href="register.php"><i class="material-icons d-lg-none d-xl-none">person_add</i>Register</a> </li> 
-<li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons d-lg-none d-xl-none">edit</i>Entry</a> </li>
-<li class="nav-item"> <a class="nav-link log blue-text" href="index.php" >Sign Out</a> </li>
-<div class="row md-form" role="form"> 
-
-      </ul> 
-    
-    <div class="" lass="nav-content ">
-      <ul class="tabs center tabs-transparent">
-        <li id="t1" class="tab"><a class="active" href="#class1" style="text-decoration:none;">Class 1 </a></li>
-        <li id="t2" class="tab"><a href="#class2" style="text-decoration:none;">Class 2</a></li>
-        <li id="t3" class="tab"><a href="#college" style="text-decoration:none;" >College</a></li>
-        <li id="t4" class="tab"><a href="#rpt" style="text-decoration:none;" >Report</a></li>
-        <li id="t5" class="tab"><a href="#chrt_tab" style="text-decoration:none;" >Chart</a></li>
-      </ul>
-    </div>
-     </nav>
-
-  <ul class="sidenav" id="mobile-sidenav">
+<!-- sidenav -->
+   <ul class="sidenav sidenav-fixed" id="mobile-sidenav">
     <div class="user-view">
       <div class="background">
         <img src="images/imgt.jpg">
@@ -305,6 +286,38 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
 </span> </span> <!-- Grid column -->
   </div> 
   </ul>
+
+  <main>
+<nav class="nav-extended center">
+    <div class="nav-wrapper">
+ <a class="brand-logo center" style="text-decoration:none;"> <i class="material-icons">school</i>SPI</a>
+      <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;" ><i class="material-icons">menu</i></a>
+      
+<div id="searchf" class="row hide"> <input id="sch" type="search" class="form-control input-field " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" required> <i id="close" class="material-icons tiny">close</i>
+</div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
+  </div><!--nav-wrap-->
+
+   <ul id="nav-mobile" class="right hide-on-med-and-down">
+<li class="nav-item active"><a class="nav-link disabled" href="view.php"><i class="material-icons d-lg-none d-xl-none">developer_board</i>View</a></li> 
+<li class="nav-item "> <a class="nav-link " href="register.php"><i class="material-icons d-lg-none d-xl-none">person_add</i>Register</a> </li> 
+<li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons d-lg-none d-xl-none">edit</i>Entry</a> </li>
+<li class="nav-item"> <a class="nav-link log blue-text" href="index.php" >Sign Out</a> </li>
+<div class="row md-form" role="form"> 
+
+      </ul> 
+    
+    <div class="" lass="nav-content ">
+      <ul class="tabs center tabs-transparent">
+        <li id="t1" class="tab"><a class="active" href="#class1" style="text-decoration:none;">Class 1 </a></li>
+        <li id="t2" class="tab"><a href="#class2" style="text-decoration:none;">Class 2</a></li>
+        <li id="t3" class="tab"><a href="#college" style="text-decoration:none;" >College</a></li>
+        <li id="t4" class="tab"><a href="#rpt" style="text-decoration:none;" >Report</a></li>
+        <li id="t5" class="tab"><a href="#chrt_tab" style="text-decoration:none;" >Chart</a></li>
+      </ul>
+    </div>
+     </nav>
+
+ 
 
   <div id="class1" class="col s12">
  <br> <ul id="cl" class="collapsible popout">
@@ -398,6 +411,8 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
     <p id="alert-message">This is a small alert message !</p>
   </div>
 </div>
+
+</main>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -54,10 +54,34 @@ position:absolute;
 right:0px;
 color:grey;
 }
+header, main, footer {
+      padding-left: 300px;
+    }
 
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
 </style>
  </head>
 <body>
+<!--side Nav -->
+  <ul id="slide-out" class="sidenav sidenav-fixed ">
+ <div class="user-view">
+      <div class="background">
+        <img src="images/imgt.jpg">
+      </div>
+ <h5 class="white-text" >User: <?php echo $_SESSION['spiusername']; ?></h5> 
+  <div id="ru" class="row"> <p><a class="log" href="index.php" class="blue-text">Sign Out</a> </p>  <p id="delacc">Delete Account</p>
+</div>
+ </div>
+<li class="nav-item"> <a class="nav-link " href="view.php"><i class="material-icons">developer_board</i>View</a> </li> 
+<li class="nav-item active"> <a class="nav-link disabled" href="register.php"><i class="material-icons">person_add</i>Register</a> </li> 
+<li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons">edit</i>Entry</a> </li>
+ </ul><!--col acc-->
+
+<main>
  <div class="container">
   <br>
   <div class="jumbotron">
@@ -211,22 +235,23 @@ color:grey;
      </div><!--jmb-->
  </div><!--con-->
 
-<!--side Nav -->
-  <ul id="slide-out" class="sidenav fixed ">
- <div class="user-view">
-      <div class="background">
-        <img src="images/imgt.jpg">
-      </div>
- <h5 class="white-text" >User: <?php echo $_SESSION['spiusername']; ?></h5> 
-  <div id="ru" class="row"> <p><a class="log" href="index.php" class="blue-text">Sign Out</a> </p>  <p id="delacc">Delete Account</p>
-</div>
- </div>
-<li class="nav-item"> <a class="nav-link " href="view.php"><i class="material-icons">developer_board</i>View</a> </li> 
-<li class="nav-item active"> <a class="nav-link disabled" href="register.php"><i class="material-icons">person_add</i>Register</a> </li> 
-<li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons">edit</i>Entry</a> </li>
- </ul><!--col acc-->
+   <!-- btn-primary -->
 
+<!-- Modal Trigger -->
+  <button id="li" class="waves-effect waves-light btn modal-trigger btn-lg btn-block" href="#modal1">Last inserted</button>
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Recent records</h4>
+      <span id="rc">Enter Batch</span>
+    </div>
+    <div class="modal-footer">
+      <p class="modal-close waves-effect btn-flat">Close</p>
+    </div>
+  </div>
+    
+</main>
 <script>
 
 $(document).ready(function() { 
@@ -386,21 +411,6 @@ M.AutoInit();
 </script>
 
 
-   <!-- btn-primary -->
-
-<!-- Modal Trigger -->
-  <button id="li" class="waves-effect waves-light btn modal-trigger btn-lg btn-block" href="#modal1">Last inserted</button>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Recent records</h4>
-      <span id="rc">Enter Batch</span>
-    </div>
-    <div class="modal-footer">
-      <p class="modal-close waves-effect btn-flat">Close</p>
-    </div>
-  </div>
-     
+ 
 </body>
 </html>

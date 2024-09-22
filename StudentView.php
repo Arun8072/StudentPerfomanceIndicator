@@ -228,34 +228,20 @@ a{text-decoration:none;}
 .show-popup {
   display: flex; /* Show the popup */
 }
+header, main, footer {
+      padding-left: 300px;
+    }
 
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
 </style>
 </head>
 <body>
-<nav class="nav-extended">
-    <div class="nav-wrapper">
-      <a style="text-decoration:none;" class="brand-logo"> <i class="material-icons">school</i>SPI</a>
-      <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;"><i class="material-icons">menu</i></a>
- 
-<div id="searchf" class="row hide small"> <input id="sch" type="search" class="form-control input-field " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" required> <i id="close" class="material-icons tiny">close</i>
-</div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
-  </div><!--nav-wrap-->
-  
-          
-      
-    <div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li id="t1" class="tab"><a class="active" href="#student" style="text-decoration:none;"><i class="small material-icons">contacts</i></a></li>
-      	<li id="t2" class="tab"><a href="#college" style="text-decoration:none;"> <i class="small material-icons">dashboard</i></a></li>
-        <li id="t3" class="tab"><a href="#rpt" style="text-decoration:none;"> <i class="small material-icons">event_note</i></a></li>
-        <li id="t4" class="tab"><a href="#chrt_tab" style="text-decoration:none;" ><i class="small material-icons">data_usage</i></a></li>
-         <li id="t5" class="tab"><a class="log right hide-on-med-and-down" href="index.php" class="blue-text">Sign Out</a></li>
-        
-      </ul>
-    </div>
-     </nav>
-
-  <ul class="sidenav" id="mobile-sidenav">
+  <!-- sidenav -->
+	 <ul class="sidenav sidenav-fixed" id="mobile-sidenav">
     <div class="user-view">
       <div class="background">
         <img src="images/imgt.jpg">
@@ -301,6 +287,31 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
   </span> <!-- Grid column -->
   </div> 
   </ul>
+
+  <main>
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a style="text-decoration:none;" class="brand-logo"> <i class="material-icons">school</i>SPI</a>
+      <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;"><i class="material-icons">menu</i></a>
+ 
+<div id="searchf" class="row hide small"> <input id="sch" type="search" class="form-control input-field " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" required> <i id="close" class="material-icons tiny">close</i>
+</div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
+  </div><!--nav-wrap-->
+  
+          
+      
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li id="t1" class="tab"><a class="active" href="#student" style="text-decoration:none;"><i class="small material-icons">contacts</i></a></li>
+      	<li id="t2" class="tab"><a href="#college" style="text-decoration:none;"> <i class="small material-icons">dashboard</i></a></li>
+        <li id="t3" class="tab"><a href="#rpt" style="text-decoration:none;"> <i class="small material-icons">event_note</i></a></li>
+        <li id="t4" class="tab"><a href="#chrt_tab" style="text-decoration:none;" ><i class="small material-icons">data_usage</i></a></li>
+        
+      </ul>
+    </div>
+     </nav>
+
+ <!-- sidenav -->
 
   <div id="student" class="col s12">
 <br> <ul id="cl" class="collapsible popout">
@@ -375,6 +386,8 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
     <p id="alert-message">This is a small alert message !</p>
   </div>
 </div>
+
+</main>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -754,7 +767,9 @@ $("#close").click(function(){
   
  
   <!--side nav activation-->
- <script> document.addEventListener('DOMContentLoaded', function() {
+ <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
 M.AutoInit();
   });
 </script>

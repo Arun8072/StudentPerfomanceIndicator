@@ -131,7 +131,7 @@ width:70%;
 }
 .flip-card {
   background-color: transparent;
-  width: 300px;
+  width: 330px;
   max-width: 400px;
   height: 140px;
   border: 1px solid #f1f1f1; 

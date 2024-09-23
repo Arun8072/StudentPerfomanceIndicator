@@ -297,14 +297,14 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
 </div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
   </div><!--nav-wrap-->
 
-   <ul id="nav-mobile" class="right hide-on-med-and-down">
+<!-- sidenav added on large screen so this not needed -->
+   <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
 <li class="nav-item active"><a class="nav-link disabled" href="view.php"><i class="material-icons d-lg-none d-xl-none">developer_board</i>View</a></li> 
 <li class="nav-item "> <a class="nav-link " href="register.php"><i class="material-icons d-lg-none d-xl-none">person_add</i>Register</a> </li> 
 <li class="nav-item"> <a class="nav-link " href="add.php"><i class="material-icons d-lg-none d-xl-none">edit</i>Entry</a> </li>
 <li class="nav-item"> <a class="nav-link log blue-text" href="index.php" >Sign Out</a> </li>
 <div class="row md-form" role="form"> 
-
-      </ul> 
+      </ul>  -->
     
     <div class="" lass="nav-content ">
       <ul class="tabs center tabs-transparent">

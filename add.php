@@ -82,9 +82,19 @@ position:absolute;
 right:0px;
 color:grey;
 }
+header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
 </style>
  </head>
 <body>
+<main>
   <div class="container">
 <form id="fg" class="form-horizontal" role="form" method="POST">
   <h5><b>Batch</b></h5>
@@ -201,9 +211,9 @@ color:grey;
          </form>
 </div>  <!-- jumbotron -->
 
-
+</main>
 <!--side Nav -->
-  <ul id="slide-out" class="sidenav fixed">
+  <ul id="slide-out" class="sidenav sidenav-fixed">
  <div class="user-view">
       <div class="background">
         <img src="images/imgt.jpg">

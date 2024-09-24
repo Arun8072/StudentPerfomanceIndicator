@@ -146,9 +146,31 @@ margin:1px;
  padding: 15px;
  border-radius:10px;
 }
-#sch{
-width:70%;
+#nav-mobile{
+  height: 64px;
 }
+#searchf,#mic,#close{
+ height: 43px;
+}
+#sch{
+/*width:70%;
+left:5%;*/
+color:white;
+padding-left:5px;
+padding-right:5px;
+}
+#tlm{
+font-family:Ubuntu-Bold;
+font-size:22px;
+}
+.flrc{float:right;}
+
+
+i{cursor:default;}
+
+html { scroll-behavior: smooth; }
+
+
 .flip-card {
   background-color: transparent;
   width: 330px;
@@ -298,8 +320,14 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
       <a style="text-decoration:none;" class="brand-logo"> <i class="material-icons">school</i>SPI</a>
       <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;"><i class="material-icons">menu</i></a>
  
-<div id="searchf" class="row hide small"> <input id="sch" type="search" class="form-control input-field " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" required> <i id="close" class="material-icons tiny">close</i>
-</div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
+<div id="searchf" class="row hide center"> 
+       
+       <div class="div_5 "><p><i id="mic" class="material-icons ">mic</i></p></div>
+       <div class="col div_90"><p><input id="sch" type="search" class="form-control input-field center " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" ></p></div>
+       <div class="div_5 "><p><i id="close" class="material-icons tiny">close</i></p></div>
+
+      </div><!--row-->
+       <i id="searchi" style="float:right" class="material-icons small">search</i>
   </div><!--nav-wrap-->
   
           
@@ -778,5 +806,10 @@ M.AutoInit();
   });
 </script>
  
+
+<script  src="vendor/js/speech_reg.js"> </script>
+
+<link href="vendor/css/simple_tooltip.css" rel="stylesheet">
+
 </body>
 </html>

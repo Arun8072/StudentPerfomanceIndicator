@@ -242,6 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<br>Select-Error : " .$conn->error;
         }*/
 
+            echo "<div class='center clsName mb-3'>".strtoupper($tname)."</div>";
         if ($result==true && $result->num_rows > 0) {
             echo '<div id="tfs">';
             while ($row = $result->fetch_assoc()) {

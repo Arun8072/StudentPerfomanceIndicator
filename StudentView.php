@@ -229,6 +229,9 @@ a{text-decoration:none;}
 .show-popup {
   display: flex; /* Show the popup */
 }
+.clsName{
+font-family: Ubuntu-Medium;
+}
 header, main, footer {
       padding-left: 300px;
     }

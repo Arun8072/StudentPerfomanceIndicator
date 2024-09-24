@@ -89,7 +89,7 @@ $depart=["cse","ece","eee","mech","civil"];
 $section=["a","b"];
 
 $clgcode="6201";
-$departCode=["104","106","113","110","102"];
+$departCode=["104","106","105","114","103"];
 
 $rollnum_length = 3;
 

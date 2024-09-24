@@ -20,12 +20,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!--materialize CSS icons-->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!-- <link href="./vendor/css/common.css" rel="stylesheet"> -->
 <style>
-/*enable for testing purpose
-*{
-box-shadow:0px 0px 4px orange;
-}*/
 @font-face {
  font-family:Ubuntu-Regular;
   src: url("vendor/fonts/Ubuntu/Ubuntu-Regular.ttf");
@@ -127,7 +123,7 @@ text-align:center;
  border-radius:10px;
 }
 #sch{
-width:70%;
+/*width:70%;*/
 }
 .flip-card {
   background-color: transparent;
@@ -182,16 +178,31 @@ position:absolute;
 right:0px;
 color:grey;
 }
+
+#nav-mobile{
+  height: 64px;
+}
+#searchf,#mic,#close{
+ height: 43px;
+}
 #sch{
+/*width:70%;
+left:5%;*/
 color:white;
+padding-left:5px;
+padding-right:5px;
 }
-/*
-@media screen and (min-width: 800px) {
-  .nav-link > i {
-    visibility: hidden;
-  }
+#tlm{
+font-family:Ubuntu-Bold;
+font-size:22px;
 }
-*/
+.flrc{float:right;}
+
+
+i{cursor:default;}
+
+html { scroll-behavior: smooth; }
+
 
 /* Style the popup container */
 .popup-container {
@@ -235,6 +246,7 @@ header, main, footer {
         padding-left: 0;
       }
     }
+
 </style>
 </head>
 <body>
@@ -294,8 +306,14 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
  <a class="brand-logo center" style="text-decoration:none;"> <i class="material-icons">school</i>SPI</a>
       <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;" ><i class="material-icons">menu</i></a>
       
-<div id="searchf" class="row hide"> <input id="sch" type="search" class="form-control input-field " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" required> <i id="close" class="material-icons tiny">close</i>
-</div><!--row--> <i id="searchi" style="float:right" class="material-icons small">search</i>
+<div id="searchf" class="row hide center"> 
+       
+       <div class="div_5 "><p><i id="mic" class="material-icons ">mic</i></p></div>
+       <div class="col div_90"><p><input id="sch" type="search" class="form-control input-field center " name="Name" pattern="[a-zA-Z0-9\s.]{30}" placeholder="Enter Student Name" ></p></div>
+       <div class="div_5 "><p><i id="close" class="material-icons tiny">close</i></p></div>
+
+      </div><!--row-->
+       <i id="searchi" style="float:right" class="material-icons small">search</i>
   </div><!--nav-wrap-->
 
 <!-- sidenav added on large screen so this not needed -->
@@ -325,10 +343,13 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
  
   </ul>
   <div class="flex-container">
-  <div id="ord" name="cc" ><i class="small material-icons">publish</i></div>
-  <div id="ccsd"><i class="small material-icons">data_usage</i></div>
-  <div id="aly1"><i class="small material-icons">dashboard</i></div>
-  <div id="avg1"><i class="small material-icons">equalizer</i></div>
+   <div id="ord" name="cc" data-tooltip="Ranking" ><i class="small material-icons">publish</i></div>
+
+  <div id="ccsd" data-tooltip="Ascending" ><i class="small material-icons">data_usage</i></div>
+
+  <div id="aly1" data-tooltip="Events" ><i class="small material-icons">dashboard</i></div>
+
+  <div id="avg1" data-tooltip="Average" ><i class="small material-icons">equalizer</i></div>
 </div>
   </div>
   
@@ -337,14 +358,16 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
 
   </ul>
   <div class="flex-container">
-  <div id="ordr" ><i class="small material-icons">publish</i></div>
-    <div id="aly2"><i class="small material-icons">dashboard</i></div>
- <div id="avg2"><i class="small material-icons">equalizer</i></div>
+  <div id="ordr" data-tooltip="Ranking" ><i class="small material-icons">publish</i></div>
+
+    <div id="aly2" data-tooltip="Events" ><i class="small material-icons">dashboard</i></div>
+
+ <div id="avg2" data-tooltip="Average" ><i class="small material-icons">equalizer</i></div>
 </div>
 </div>
   
   <div id="college" class="col s12"> 
-
+<br>
  <ul id="clg" class="collapsible popout">
 
     </ul>
@@ -890,7 +913,11 @@ document.querySelector('.popup').addEventListener('click', function() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   
       <!-- <script src="js/bootstrap.min.js"></script> -->
- 
+    <script src="vendor/bootstrap/js/tooltip.js"></script>
+
+   <script src="vendor/bootstrap/js/tooltip.min.js.map"></script> 
+
+   
   <!--side nav activation-->
  <script> document.addEventListener('DOMContentLoaded', function() {
 M.AutoInit();
@@ -901,6 +928,10 @@ M.AutoInit();
  let slt=stt.concat(sll);
 */
 </script>
+  
+<script  src="vendor/js/speech_reg.js"> </script>
+
+<link href="vendor/css/simple_tooltip.css" rel="stylesheet">
  
 </body>
 </html>

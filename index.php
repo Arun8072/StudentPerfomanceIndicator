@@ -83,14 +83,26 @@ echo $_SESSION['spiusername'].
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/main.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/login.css">
 </head>
 <body>
 	
-	
+	<img class="wave" src="images/wave.png">
+
+	<div class="container">
+
+		<div class="img">
+
+			<img src="images/bg.png">
+
+		</div>
+
+		<!-- <img src="images/avatar.svg">  -->
+
 	<div class="container-login100" style="">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			
-  <ul id="nv" class="nav nav-tabs bg-transparent nav-pills justify-content-center" role="tablist">
+  <ul id="nv" class="nav nav-tabs bg-transparent justify-content-center" role="tablist">
 	  <li class="nav-item">
 <a id="lgn1" class="nav-link" data-toggle="tab" href="#S-login">S-Login</a>
     </li>
@@ -103,6 +115,7 @@ echo $_SESSION['spiusername'].
   
 <span class="tab-content">
  <div id="S-login" class="container tab-pane fade" style="word-break: break-all;">
+ 	<img id="avatar" src="images/avatar.png">
  <span class="login100-form-title p-b-37"> Student's Login</span>
 <form id="form1" class="login100-form validate-form" method="POST" action="<?php echo htmlentities('student_verification.php'); ?>" >   
 		<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Name">
@@ -132,6 +145,7 @@ echo $_SESSION['spiusername'].
     </div>
     
     <div id="T-login" class="container tab-pane fade" style="word-break: break-all;">
+    	<img id="avatar" src="images/avatar.png">
  <span class="login100-form-title p-b-37"> Teacher's Login</span>  
 <form id="form2" class="login100-form validate-form1" method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" >  
 					<div class="wrap-input100 validate-input1 m-b-20" data-validate="Enter Username ">
@@ -140,7 +154,7 @@ echo $_SESSION['spiusername'].
 				</div>              
 
 				<div class="wrap-input100 validate-input1 m-b-25" data-validate = "Enter Password">
-					<input class="input100" type="password" name="password" placeholder="password">
+					<input class="input100" type="password" name="password" placeholder="Password">
 					<span class="focus-input100"></span>
 				</div>     
                   
@@ -170,7 +184,7 @@ echo $_SESSION['spiusername'].
 				</div>              
 
 				<div class="wrap-input100 validate-input2 m-b-25" data-validate = "Enter Password">
-					<input class="input100" type="password" name="CreatePass" placeholder="password">
+					<input class="input100" type="password" name="CreatePass" placeholder="Password">
 <span class="focus-input100"></span>				</div> 
              
 <div class="wrap-input100 validate-input2 m-b-20" >
@@ -218,6 +232,7 @@ $(document).ready(function() {
 var i=0;
  $(".cr-al").click(function(e){   
    e.preventDefault();
+   console.log("clicked");
 var user =$('[name=CreateUser]').val();
 var pass =$('[name=CreatePass]').val();
 var id =$('[name=unqid]').val();
@@ -248,7 +263,9 @@ var si =$(this).attr("id");
     });//aj
     }//if
   });//clk
-  
+
+    //if active class is added on tabs trigger doesnt work on tabs
+   $("#lgn2").trigger("click");
 });//doc
 </script>
 </body>

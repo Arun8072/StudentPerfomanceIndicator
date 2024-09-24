@@ -1,0 +1,218 @@
+/*enable for testing purpose
+*{
+box-shadow:1px 0px 3px orange;
+}*/
+@font-face {
+ font-family:Ubuntu-Regular;
+  src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf");
+}
+@font-face {
+ font-family:Ubuntu-Medium;
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.ttf");
+}
+@font-face {
+ font-family:Ubuntu-Italic;
+  src: url("../fonts/Ubuntu/Ubuntu-Italic.ttf");
+}
+@font-face {
+ font-family:Ubuntu-MediumItalic;
+  src: url("../fonts/Ubuntu/Ubuntu-MediumItalic.ttf");
+}
+@font-face {
+ font-family:Ubuntu-Bold;
+  src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf");
+}
+.sidenav{
+    font-family: Ubuntu-Regular;
+}
+.nav-extended,#sch,.umd{
+font-family: Ubuntu-Medium;
+}
+.mitl{
+font-family:Ubuntu-MediumItalic;
+}
+.itl,#tfs{
+font-family:Ubuntu-Italic;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-flow: row wrap;
+  align-items:center;
+}
+.nav-extended,#sch {
+font-family: Ubuntu-Medium;
+}
+.tp{
+position:relative;
+width:100%;
+height:37px;
+/*font-size:17px; 
+text-align:left;
+top:0%;
+left:0%;*/
+}
+.tpl{
+font-weight:bold;
+font-family: Ubuntu-Medium;
+font-size:15px; 
+text-align:left;
+top:0%;
+left:0%;
+/*color:dodgerblue;*/
+}
+.btm{
+position:absolute ;
+ font-size:11px; 
+ text-align:left;
+ bottom: 0%;
+ left:0%;
+ color:grey;
+}
+.btc{
+position:absolute ;
+ font-size:10px; 
+ text-align:center;
+ right: 0%;
+ float:right
+ top:0%
+}
+.sd{
+ position:absolute ;
+ font-size:10px; 
+ text-align:right;
+ float:right;
+ right:0%;
+ bottom:0%;
+ opacity:0.5;
+}
+.flr{
+ text-align:right;
+ float:right;
+ bottom: 0%;
+ right:0%;
+}
+ .itl{
+font-style:italic;
+font-family:Ubuntu-Italic;
+/*color:white;*/
+}
+.ttl{
+/*color:dodgerblue;*/
+font-family:Ubuntu-Medium;
+}
+.tls{
+/*color:dodgerblue;*/
+font-family:Ubuntu-Medium;
+}
+#dft{
+ text-align:center;
+ display:inline-block;
+ padding: 15px;
+ border-radius:10px;
+}
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 140px;
+  border: 1px solid #f1f1f1; 
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+ border-radius:7px;
+  font-family: Ubuntu-Medium;
+}
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius:7px;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side*/
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius:7px;
+}
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: dodgerblue;
+  color: white;
+}
+/* Style the back side */
+.flip-card-back {
+  background-color: #dddddd ;
+  color: black;
+  transform: rotateY(180deg);
+}
+#ru{
+position:relative;
+}
+#delacc{
+position:absolute;
+right:0px;
+color:grey;
+}
+#nav-mobile{
+  height: 64px;
+}
+#searchf,#mic,#close{
+ height: 43px;
+}
+#sch{
+/*width:70%;
+left:5%;*/
+color:white;
+padding-left:5px;
+padding-right:5px;
+}
+#tlm{
+font-family:Ubuntu-Bold;
+font-size:22px;
+}
+.flrc{float:right;}
+#tfs{
+ overflow:auto;
+ overflow-x:scroll;
+ max-height:33px;
+ display:flex;
+ flex-flow: column wrap;
+}
+.chip{
+margin:1px;
+}
+a{text-decoration:none;}
+.select-year{
+border:none;
+padding:5px;
+min-width:65px;
+font-family:Ubuntu-Regular;
+}
+
+#sch::placeholder{
+color: #ddd;
+}
+
+i{cursor:default;}
+
+html { scroll-behavior: smooth; }
+
+ header, body, footer {
+      padding-left: 300px;
+    }
+
+@media only screen and (max-width : 992px) {
+   header, body, footer {
+      padding-left: 0;
+   }
+}

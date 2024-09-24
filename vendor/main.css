@@ -21,6 +21,22 @@
   src: url('fonts/JosefinSans/JosefinSans-Bold.ttf'); 
 }
 
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('fonts/Ubuntu/Ubuntu-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('fonts/Ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Medium;
+  src: url('fonts/Ubuntu/Ubuntu-Medium.ttf'); 
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -32,12 +48,12 @@
 
 body, html {
 	height: 100%;
-	font-family: SourceSansPro-Regular, sans-serif;
+	font-family: Ubuntu-Regular, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: SourceSansPro-Regular;
+	font-family: Ubuntu-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -62,7 +78,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: SourceSansPro-Regular;
+	font-family: Ubuntu-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -120,14 +136,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: SourceSansPro-Regular;
+  font-family: Ubuntu-Regular;
   font-size: 16px;
   line-height: 1.4;
   color: #999999;
 }
 
 .txt2 {
-  font-family: SourceSansPro-Regular;
+  font-family: Ubuntu-Regular;
   font-size: 16px;
   line-height: 1.4;
   color: #4b2354;
@@ -201,7 +217,7 @@ iframe {
 
 .login100-form-title {
   display: block;
-  font-family: SourceSansPro-Bold;
+  font-family: Ubuntu-Bold;
   font-size: 30px;
   color: #4b2354;
   line-height: 1.2;
@@ -219,7 +235,7 @@ iframe {
 }
 
 .input100 {
-  font-family: SourceSansPro-Bold;
+  font-family: Ubuntu-Bold;
   font-size: 16px;
   color: #4b2354;
   line-height: 1.2;
@@ -289,10 +305,10 @@ iframe {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #bd59d4;
+  background-color: #38d39f;
   border-radius: 25px;
 
-  font-family: SourceSansPro-SemiBold;
+  font-family: Ubuntu-Medium;
   font-size: 14px;
   color: #fff;
   line-height: 1.2;
@@ -302,21 +318,22 @@ iframe {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-
+/*
   box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
   -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
   -webkit-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
   -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
   -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.5);
+  */
 }
 
 .login100-form-btn:hover {
-  background-color:#4b2354;
-  box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-  -moz-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-  -webkit-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-  -o-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
-  -ms-box-shadow: 0 10px 30px 0px rgba(189, 89, 212, 0.8);
+   background-color: #32bd8f;
+  box-shadow: 0 10px 30px 0px #87e4c5;
+  -moz-box-shadow: 0 10px 30px 0px #87e4c5;
+  -webkit-box-shadow: 0 10px 30px 0px #87e4c5;
+  -o-box-shadow: 0 10px 30px 0px #87e4c5;
+  -ms-box-shadow: 0 10px 30px 0px #87e4c5;
 }
 
 
@@ -353,7 +370,7 @@ iframe {
   padding: 0 45px 0 22px;
   pointer-events: none;
 
-  font-family: SourceSansPro-Bold;
+  font-family: Ubuntu-Bold;
   font-size: 16px;
   color: #fa4251;
   line-height: 1.2;
@@ -406,10 +423,10 @@ iframe {
 
 .login100-social-item {
 /*mine*/
- font-family: SourceSansPro-SemiBold;
-  font-size: 14px;
+ font-family: Ubuntu-Medium;
+   font-size: 12px;
   text-transform: uppercase;/*mine*/
-  color: #3b5998;
+  color: #38d39f;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -435,7 +452,7 @@ iframe {
 }
 
 .login100-social-item:hover {
-  color: #3b5998;
+  color: #2ca87f;
   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
@@ -443,12 +460,40 @@ iframe {
   -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* ///////////////////////// */
+
+.tab-pane {
+  text-align: center;
+  word-break: break-all;
+}
+
+.tab-pane #avatar{
+  padding: 25px 0px;
+  width: 100px;
+}
+
+i{cursor:default;}
+
+
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
 
-@media (max-width: 480px) {
+
+@media (max-width: 768px) {
   .wrap-login100 {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding:0px 15px;
+  }
+}
+@media (min-width: 768px) {
+  .tab-pane {
+    padding:0px 15px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .tab-pane {
+    padding:0px 8px;
+  }
+  .wrap-login100{
+    width:400px;
   }
 }

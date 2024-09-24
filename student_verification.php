@@ -8,7 +8,7 @@ if(isset($_COOKIE['studreg']) || $_SERVER["REQUEST_METHOD"] == "GET"){
    if($_SERVER["REQUEST_METHOD"] == "POST") {
      
 function search($reg,$tname,$name){
-if(30<substr($reg,10,2)){ 
+if(30<=substr($reg,10,2)){ 
 $ord="ORDER BY RegisterNumber DESC";
 }else{ $ord="";}
 $servername = "localhost";
@@ -24,7 +24,7 @@ if ($conn->connect_error) {
    die("Connection failed: "  . $conn->connect_error);
 }
    
-   $sql = "SELECT RegisterNumber,Name FROM {$tname} {$ord} LIMIT 35";
+   $sql = "SELECT DISTINCT RegisterNumber,Name FROM {$tname} {$ord} LIMIT 35";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

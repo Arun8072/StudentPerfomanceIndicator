@@ -129,7 +129,7 @@ header, main, footer {
 </select>
   </div> <!-- Grid column --> 
   <div class="col-12 mt-5">
-<div id="up" class="btn col-4">List</div>
+<div id="up" class="btn col-4 green accent-4">List</div>
   </div>
  </div><!--row-->
 </div><!--upd-->
@@ -202,11 +202,11 @@ header, main, footer {
 </div> <!-- Grid row -->
 <div class="col-12">
         <!-- btn-primary -->
-  <button id="submit" type="submit" class="btn col-4"  value="Submit">Submit</button>
+  <button id="submit" type="submit" class="btn col-4 green accent-4"  value="Submit">Submit</button>
 
  </div>
  <!-- Modal Trigger -->
-  <button id="li" class="waves-effect waves-light btn col-12 modal-trigger" href="#modal1">Last inserted</button>
+  <button id="li" class="green accent-4 waves-effect waves-light btn col-12 modal-trigger" href="#modal1">Last inserted</button>
   </div><!--frmgrp-->
          </form>
 </div>  <!-- jumbotron -->

@@ -207,7 +207,7 @@ html { scroll-behavior: smooth; }
 }
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: dodgerblue;
+  background-color: #38d39f;
   color: white;
 }
 /* Style the back side */
@@ -315,7 +315,7 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
   </ul>
 
   <main>
-<nav class="nav-extended">
+<nav class="nav-extended green accent-3">
     <div class="nav-wrapper">
       <a style="text-decoration:none;" class="brand-logo"> <i class="material-icons">school</i>SPI</a>
       <a href="#menu" data-target="mobile-sidenav" class="sidenav-trigger" style="text-decoration:none;"><i class="material-icons">menu</i></a>
@@ -371,8 +371,8 @@ echo '<span class="small">'.ucfirst($_COOKIE["slot"]).'</span>';
     </div> 
  </div>
 
-    <div class="fixed-action-btn"> <a class="btn-floating red"> <i class=" material-icons">today</i> </a> <ul> <li class="dep" value="CSE" ><a class="btn-floating pink"><i class="material-icons">laptop_mac</i></a></li> <li class="dep" value="ECE" ><a class="btn-floating orange darken-1"><i class="material-icons">memory</i></a></li> <li class="dep" value="EEE" ><a class="btn-floating teal "><i class="material-icons">power</i></a></li> <li class="dep" value="MECH" ><a class="btn-floating blue darken-1"><i class="material-icons">settings</i></a></li>
-<li class="dep" value="CIVIL" ><a class="btn-floating yellow darken-1"><i class="material-icons">home</i></a></li></ul> </div> 
+    <div class="fixed-action-btn"> <a class="btn-floating green accent-4"> <i class=" material-icons">today</i> </a> <ul> <li class="dep" value="CSE" ><a class="btn-floating green accent-4"><i class="material-icons">laptop_mac</i></a></li> <li class="dep" value="ECE" ><a class="btn-floating green accent-4"><i class="material-icons">memory</i></a></li> <li class="dep" value="EEE" ><a class="btn-floating green accent-4 "><i class="material-icons">power</i></a></li> <li class="dep" value="MECH" ><a class="btn-floating green accent-4"><i class="material-icons">settings</i></a></li>
+<li class="dep" value="CIVIL" ><a class="btn-floating green accent-4"><i class="material-icons">home</i></a></li></ul> </div> 
   </div>
   
 <div id="rpt" class="col s12"><br>

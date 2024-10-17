@@ -229,7 +229,7 @@ header, main, footer {
   </div> <!-- Grid column --> 
 </div> <!-- Grid row -->
         <!-- btn-primary -->
-   <button id="submit" type="submit" class="btn "  value="Submit">Submit</button>
+   <button id="submit" type="submit" class="btn  green accent-4"  value="Submit">Submit</button>
              </div><!--frmgrp-->
          </form>
      </div><!--jmb-->
@@ -238,7 +238,7 @@ header, main, footer {
    <!-- btn-primary -->
 
 <!-- Modal Trigger -->
-  <button id="li" class="waves-effect waves-light btn modal-trigger btn-lg btn-block" href="#modal1">Last inserted</button>
+  <button id="li" class="green accent-4 waves-effect waves-light btn modal-trigger btn-lg btn-block" href="#modal1">Last inserted</button>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal bottom-sheet">

@@ -64,7 +64,7 @@ margin-right:22px;
 .one{
 text-align:right;
 background-color: #ffffff;
-border-right: 6px solid blue;
+border-right: 6px solid green;
 font-family:Ubuntu-Medium;
 }
 .btn{

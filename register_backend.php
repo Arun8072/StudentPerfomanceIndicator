@@ -33,7 +33,7 @@ exit();
 //die first year>last year
 if(intval(substr($_POST['tname'],0,4))>intval(substr($_POST['tname'],4,4))){die("Invalid batch");}
 //Strip all characters but letters and numbers from a PHP string
- $tname = preg_replace("/[^A-Z0-9]/", "", $_POST['tname']);
+ $tname = preg_replace("/[^A-Za-z0-9]/", "", $_POST['tname']);
  $ind= $_POST['indct'];
  $mode= $_POST['mode'];
  $level= $_POST['level'];
@@ -88,8 +88,8 @@ echo "Check out the form";
 }//cr if
   
 if("last"==$_POST['a']){
-$tname = preg_replace("/[^A-Z0-9]/", "",$_POST['tname']);
-$mnt= $_POST['mnt'];
+ $tname = preg_replace("/[^A-Za-z0-9]/", "",$_POST['tname']);
+ $mnt= $_POST['mnt'];
 
 if(strlen($tname)>11) { 
 $sql = "SELECT * FROM {$tname} WHERE mentor='{$mnt}' ORDER BY ID DESC LIMIT 5";
